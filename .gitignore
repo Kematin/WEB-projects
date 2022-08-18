@@ -1,1 +1,11 @@
+/* Virtual environment */
 venv
+
+/* Cache */
+__pycache__
+
+/* DB */
+*.sqlite3
+
+/* Curency Calculate */
+Curency_Calculate/Curency_Calculate/Curency_Calculate/data.py

@@ -15,8 +15,7 @@
             <p>Amount to Convert:</p>
             <form method="post" action="{% url 'index' %}">
                 {% csrf_token %}
-                <div id="input_value">{{ input_value_form }}</div>
-                <div id="select_curency">{{ currency_select }}</div>
+                <div id="form">{{ form }}</div>
                 <input type="submit" value="Convert">
             </form>
         </div>

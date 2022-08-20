@@ -15,10 +15,11 @@
             <p>Amount to Convert:</p>
             <form method="post" action="{% url 'index' %}">
                 {% csrf_token %}
-                <div id="form">{{ form }}</div>
+                <div id="form"><p>{{ form }}</p></div>
                 <input type="submit" value="Convert">
             </form>
-            <p>{{ total }}</p>
+            <p>Giving {{ c_1 }} Get {{ c_2 }}</p>
+            <p>{{ total }} {{ c_2 }}</p>
         </div>
     </div>    
 </body>

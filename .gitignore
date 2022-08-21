@@ -9,3 +9,6 @@ __pycache__
 
 /* Curency Calculate */
 Curency_Calculate/Curency_Calculate/Curency_Calculate/data.py
+
+/* Weather App */
+WeatherApp/project/project/secret.py

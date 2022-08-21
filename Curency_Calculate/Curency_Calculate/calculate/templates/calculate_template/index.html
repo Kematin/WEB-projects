@@ -3,7 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Curency Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'calculate/style.css' %}">
 </head>
 <body>
@@ -12,14 +14,13 @@
     </div>
     <div id="footer">
         <div id="main_block">
-            <p>Amount to Convert:</p>
             <form method="post" action="{% url 'index' %}">
                 {% csrf_token %}
                 <div id="form"><p>{{ form }}</p></div>
                 <input type="submit" value="Convert">
             </form>
-            <p>Giving {{ c_1 }} Get {{ c_2 }}</p>
-            <p>{{ total }} {{ c_2 }}</p>
+            <p>Giving <strong>{{ c_1 }}</strong> Get <strong>{{ c_2 }}</strong></p>
+            <p>{{ total }} <strong>{{ c_2 }}</strong></p>
         </div>
     </div>    
 </body>

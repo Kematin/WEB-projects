@@ -1,9 +1,10 @@
-@font-face {
-    
+body {
+    text-align: center;
 }
 
-#header p {
-    font-family: 'Vegan Style';
+#header {
+    text-align: center;
     font-size: 20px;
+    color: blue;
 }
 

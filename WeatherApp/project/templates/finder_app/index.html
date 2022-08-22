@@ -2,4 +2,12 @@
 
 {% block content %}
 <h1>Main Url</h1>
+<p>{{ city }}</p>
+<p>{{ t }}</p>
+<p>{{ weather }}</p>
+<form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    {{ city_form }}
+    <input type="submit" value="Find">
+</form>
 {% endblock %}

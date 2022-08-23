@@ -14,7 +14,11 @@ def index(request):
         'city': request.session['city'],
         'city_form': CityForm(),
     }
+    context = get_data(request, context)
+    return render(request, 'finder_app/index.html', context)
 
+
+def get_data(request, context):
     if request.method == 'POST':
         form = CityForm(request.POST)
         
@@ -22,8 +26,5 @@ def index(request):
             request.session['city'] = form.cleaned_data['city_form']
             t, weather = return_data(request.session['city'])
             context['t'], context['weather'], context['city'] = t, weather, request.session['city']
-        
-        return render(request, 'finder_app/index.html', context)
-
-    return render(request, 'finder_app/index.html', context)
-
+    
+    return context

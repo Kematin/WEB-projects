@@ -1,13 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<h1>Main Url</h1>
-<p>{{ city }}</p>
-<p>{{ t }}</p>
-<p>{{ weather }}</p>
-<form action="{% url 'index' %}" method="post">
-    {% csrf_token %}
-    {{ city_form }}
-    <input type="submit" value="Find">
-</form>
+<div id="header">
+    <div id="information">
+        <p>
+            <span>Kematin</span>
+            <a href="{% url 'index' %}">Main page</a>
+            <a href="{% url 'index' %}">Info</a>
+            <a class="btn btn-primary" href="https://openweathermap.org/current#other" role="button">Documentation</a>
+        </p>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="find_information">
+        <h1>Weather in your city</h1>
+        <form action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            <p>City: </p>
+            <div id="city_form">{{ city_form }}</div>
+            <div id="button-submit"><input type="submit" value="Find" class="btn btn-outline-success"></div>
+        </form>
+    </div>
+
+    <div id="display_information">
+        <h1>Info about your city</h1>
+        <div><img src="{% static 'img/clear sky.png' %}" alt="Clear sky"></div>
+        {{ city }}
+        {{ t }}
+        {{ weather }}
+    </div>
+</div>
 {% endblock %}

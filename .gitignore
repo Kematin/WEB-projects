@@ -12,3 +12,6 @@ Curency_Calculate/Curency_Calculate/Curency_Calculate/data.py
 
 /* Weather App */
 WeatherApp/project/project/secret.py
+
+/* Lsp server */
+lsp_server

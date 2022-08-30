@@ -3,28 +3,29 @@ from django.shortcuts import render
 from .main import return_data
 from .forms import *
 
+all_info = list()
 # Create your views here.
 def index(request):
-    if 'city' not in request.session:
-        request.session['city'] = 'None'
-
+    request.session['info'] = get_data(request)
+    
     context = {
-        't': 'None',
-        'weather': 'None',
-        'city': request.session['city'],
+        'info': request.session['info'],
         'city_form': CityForm(),
     }
-    context = get_data(request, context)
+
     return render(request, 'finder_app/index.html', context)
 
 
-def get_data(request, context):
+# Getting weather information,
+# dictionary conversion
+def get_data(request):
+    info = dict()
     if request.method == 'POST':
         form = CityForm(request.POST)
         
         if form.is_valid():
-            request.session['city'] = form.cleaned_data['city_form']
-            t, weather = return_data(request.session['city'])
-            context['t'], context['weather'], context['city'] = t, weather, request.session['city']
+            city = form.cleaned_data['city_form']
+            t, weather = return_data(city)
+            info['t'], info['icon'], info['city'] = t, weather, city
     
-    return context
+        return info

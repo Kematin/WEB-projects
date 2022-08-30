@@ -5,7 +5,7 @@
 <div id="header">
     <div id="information">
         <p>
-            <span>Kematin</span>
+            <span><strong>Kematin</strong></span>
             <a href="{% url 'index' %}">Main page</a>
             <a href="{% url 'index' %}">Info</a>
             <a class="btn btn-primary" href="https://openweathermap.org/current#other" role="button">Documentation</a>
@@ -26,10 +26,18 @@
 
     <div id="display_information">
         <h1>Info about your city</h1>
-        <div><img src="{% static 'img/clear sky.png' %}" alt="Clear sky"></div>
-        {{ city }}
-        {{ t }}
-        {{ weather }}
+        <div class="display-content">
+            <div class="display-image">
+                <img src="{% static '' %}img/{{ info.icon }}.ico" alt="{{ icon }}">
+            </div>
+            <div class="display-text">
+                <p>
+                    City: <b>{{ info.city }}</b><br>
+                    Temperature: <b>{{ info.t }} °C</b>
+                </p>
+            </div>
+        </div>
+        </div>
     </div>
 </div>
 {% endblock %}

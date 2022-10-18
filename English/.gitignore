@@ -1,0 +1,8 @@
+/* virtual envorment */
+venv
+
+/* secret */
+secret.py
+
+/* DB */
+*.sqlite3

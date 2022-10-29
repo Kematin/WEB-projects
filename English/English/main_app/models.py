@@ -2,6 +2,6 @@ from django.db import models
 
 # Create your models here.
 class Tasks(models.Model):
-    q1 = models.CharField(max_length=50)
-    q2 = models.CharField(max_length=50)
-    q3 = models.CharField(max_length=50)
+    task_1 = models.CharField(max_length=500)
+    task_2 = models.CharField(max_length=500)
+    task_3 = models.CharField(max_length=500)

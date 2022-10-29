@@ -143,36 +143,31 @@
             </div>
           </div>
         </section>
+        <!-- ----------------------------MAIN FORM------------------------------ -->
         <form method="post">
             {% csrf_token %}
             <section class="portfolio text-center section-padding" id="portfolio">
               <div class="container">
-                <div class="row">
                   <div id="portfolioSlider">
                     <ul class="slides">
                       <li>
                         <div class="col-md-4 wp4">
                           <h2>Name of Task 1</h2>
                           <p>Explanation of the task</p>
-                          {{ form }}
-                          <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" 
-                            name="q1">
                         </div>
                         <div class="col-md-4 wp4 delay-05s">
                           <h2>Name of Task 2</h2>
                           <p>Explanation of the task</p>
-                          <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" 
-                            name="q2">
                         </div>
                         <div class="col-md-4 wp4 delay-1s">
                           <h2>Name of Task 3</h2>
                           <p>Explanation of the task</p>
-                          <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" 
-                            name="q3">
                         </div>
                       </li>
                     </ul>
                   </div>
+                <div class="form">
+                    {{ form }}
                 </div>
               </div>
             </section>

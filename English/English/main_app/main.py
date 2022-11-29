@@ -11,19 +11,19 @@ class Main:
         achievemnt_1 = {
                 "title": "Achievemnt 1", 
                 "info": info_1, 
-                "url": "static/img/img.png"
+                "url": "static/img/rainbow.jpg"
                 }
 
         achievemnt_2 = {
                 "title": "Achievemnt 2", 
                 "info": info_2, 
-                "url": "static/img/img.png"
+                "url": "static/img/bright.jpg"
                 }
 
         achievemnt_3 = {
                 "title": "Achievemnt 3", 
                 "info": info_3, 
-                "url": "static/img/img.png"
+                "url": "static/img/purple_people.jpg"
                 }
 
 

@@ -64,12 +64,10 @@
           <div class="container">
             <div class="row">
               <div class="col-md-8 col-md-offset-2 wp1">
-                <h1 class="arrow">Ability to concentrate</h1>
-                <p>The ability to concentrate on one task without being constantly 
-                    distracted by notifications and social networks is a valuable
-                    skill in the modern world. We understand how to enter the 
-                    hyperfocus state and why it is more effective than multitasking.
-                </p>
+                <h1 class="arrow">HyperFocus</h1>
+                <p>Hyperfocus is the opposite of multitasking. Since the state of extraordinary concentration when immersed in any activity cannot last long, hyperfocus is measured in periods. This is one of the phases of brain activity when focusing on a particular topic allows us to ignore all other stimuli.
+Is hyperfocus just attention?
+Rather, hypervigilance.</p>
               </div>
             </div>
           </div>
@@ -84,19 +82,19 @@
                     <video style="max-width:300px; max-height:150px"
                         src="{% static 'vid/vid.mp4' %}" poster="poster.jpg" controls></video>
                     <h2>Video 1</h2>
-                    <p>Text about video</p>
+                    <p>First, determine how long you are ready to enter hyperfocus. Think about how much you like the idea of entering this mode, especially if you have to deal with a difficult, annoying or unstructured task. Over time, the period of stay in hyperfocus will increase, and this will bring you a feeling of great satisfaction. Push yourself to it, but not too hard. You can start with 15-minute dives into hyperfocus, arranging breaks of five to ten minutes between them. Attempts to enter hyperfocus during the day can be very exhausting, and switching to something stimulating is always nice, especially at first. However, soon you will get used to it and will work, being distracted much less often.</p>
                   </div>
                   <div class="col-md-4 wp2 delay-05s">
                     <video style="max-width:300px; max-height:150px"
                         src="{% static 'vid/vid_2.mp4' %}" poster="poster.jpg" controls></video>
                     <h2>Video 2</h2>
-                    <p>Text about video</p>
+                    <p>Set a timer. It's easier to turn it on in a prominent place, such as a smartphone, which is paradoxical, considering how this device can distract us. If there is a danger that calls and messengers will drag you into a black hole, turn on airplane mode or use a clock or some other timer.</p>
                   </div>
                   <div class="col-md-4 wp2 delay-1s">
                     <video style="max-width:300px; max-height:150px"
                         src="{% static 'vid/vid_3.mp4' %}" poster="poster.jpg" controls></video>
                     <h2>Video 3</h2>
-                    <p>Text about video</p>
+                    <p>Focus! If you notice that your thoughts are wandering somewhere, that you are distracted, focus again on the task at hand. And again, don't punish yourself too much if you get distracted — that's how our brain works. If you feel that you can remain focused on the task even after the timer signal — and this is quite possible, since the hyperfocus mechanism is already running — do not stop.</p>
                   </div>
                   <div class="clearfix"></div>
                 </div>
@@ -119,15 +117,12 @@
                     <ul class="slides">
                       <li>
                         <h1 class="arrow">Hyperfocus method</h1>
-                        <p>First, determine how long you are ready to enter hyperfocus. Think about how much you like the idea of entering this mode, especially if you have to deal with a difficult, annoying or unstructured task. Over time, the period of stay in hyperfocus will increase, and this will bring you a feeling of great satisfaction. Push yourself to it, but not too hard. You can start with 15-minute dives into hyperfocus, arranging breaks of five to ten minutes between them. Attempts to enter hyperfocus during the day can be very exhausting, and switching to something stimulating is always nice, especially at first. However, soon you will get used to it and will work, being distracted much less often.</p>
                       </li>
                       <li>
                         <h1 class="arrow">How to enter hyperfocus</h1>
-                        <p>Set a timer. It's easier to turn it on in a prominent place, such as a smartphone, which is paradoxical, considering how this device can distract us. If there is a danger that calls and messengers will drag you into a black hole, turn on airplane mode or use a clock or some other timer.</p>
                       </li>
                       <li>
                         <h1 class="arrow">Focus!</h1>
-                        <p>Focus! If you notice that your thoughts are wandering somewhere, that you are distracted, focus again on the task at hand. And again, don't punish yourself too much if you get distracted — that's how our brain works. If you feel that you can remain focused on the task even after the timer signal — and this is quite possible, since the hyperfocus mechanism is already running — do not stop.</p>
                       </li>
                     </ul>
                   </div>
@@ -198,7 +193,7 @@
                     <li>
                       {% for template in templates %}
                           <div class="col-md-4 wp5">
-                              <img style="height:20%; width:30%; border: 5px solid transparent; border-radius: 20px"src="{{ template.url }}" alt="Icon achievemnt">
+                              <img style="max-height:200px; max-width:200px; border: 5px solid transparent; border-radius: 20px"src="{{ template.url }}" alt="Icon achievemnt">
                               <h2>{{ template.title }}</h2>
                               <p>{{ template.info }}</p>
                           </div>

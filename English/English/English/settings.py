@@ -30,7 +30,7 @@ SECRET_KEY = secret.SECRET_KEY
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["https://e3ec-188-19-63-244.eu.ngrok.io"]
+CSRF_TRUSTED_ORIGINS = ["https://23ac-188-19-60-102.eu.ngrok.io"]
 
 # Application definition
 

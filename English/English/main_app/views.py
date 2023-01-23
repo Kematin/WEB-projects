@@ -8,10 +8,9 @@ def index(request):
             "form": TaskForm,
             "templates": []
         }
-    if request.method == "POST": 
-        runner = Main()
-        templates = runner.main(1, 2, 3)
-        context["templates"] = templates
+    runner = Main()
+    templates = runner.main(1, 2, 3)
+    context["templates"] = templates
 
     return render(request, "index.html", context)
 

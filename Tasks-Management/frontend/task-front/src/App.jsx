@@ -1,13 +1,20 @@
-import TaskList from "./assets/components/tasklist/TaskList"
-import AddButton from "./assets/components/ui/AddButton/AddButton"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Register from "./assets/pages/Register"
+import Login from "./assets/pages/Login"
+import TaskPage from "./assets/pages/TaskPage"
 
 function App() {
   return (
-    <div className="App">
-      <h1>Tasks</h1>
-      <TaskList />
-      <AddButton />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<TaskPage />}>
+        <Route path="/login" element={<Register />} />
+        <Route path="/register" element={<Login />} />
+        {/* <Route path="*" element={<NoPage />} /> */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

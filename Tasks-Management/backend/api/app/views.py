@@ -15,7 +15,7 @@ class TaskList(ListAPIView):
     serializer_class = TasksSerializer
 
     def get_queryset(self):
-        user_id = self.request.data.get('user_id', None)
+        user_id = self.request.query_params.get('user_id', None)
         if user_id is None:
             return []
 

@@ -5,6 +5,10 @@ import TaskList from "../components/tasklist/TaskList"
 import AddButton from "../components/ui/AddButton/AddButton"
 
 function TaskPage() {
+    async function deleteCookie() {
+        Cookies.remove("refreshToken")
+        Cookies.remove("accessToken")
+    }
     async function moveUser() {
         const result = await checkAuth()
         console.log(`User register is ${result}`)
@@ -13,15 +17,13 @@ function TaskPage() {
     async function checkAuth() {
         const tokens = await getTokens();
 
-        switch (tokens) {
-            case tokens.access === undefined || tokens.refresh === undefined:
-                return false;
-            case await checkAccessTokenOrRewrite(tokens) === false:
-                return false;
-            default:
-                return true;
+        if (tokens.access === undefined || tokens.refresh === undefined) {
+            return false;
+        } else {
+            return await checkAccessTokenOrRewrite(tokens);
         }
     }
+
 
     async function getTokens() {
         const accessToken = Cookies.get("accessToken");
@@ -76,6 +78,7 @@ function TaskPage() {
             <TaskList />
             <AddButton />
             <button onClick={moveUser}>CheckAuth</button>
+            <button onClick={deleteCookie}>Delete tokens</button>
         </div>
     );
 }

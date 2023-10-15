@@ -1,17 +1,26 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 import TaskList from "../components/tasklist/TaskList"
 import AddButton from "../components/ui/AddButton/AddButton"
 
 function TaskPage() {
+    const navigate = useNavigate();
+    moveUser()
+
     async function deleteCookie() {
         Cookies.remove("refreshToken")
         Cookies.remove("accessToken")
     }
+
     async function moveUser() {
-        const result = await checkAuth()
-        console.log(`User register is ${result}`)
+        const isAuthenticated = await checkAuth();
+        console.log(`User is authenticated: ${isAuthenticated}`);
+
+        if (!isAuthenticated) {
+            navigate('/login');
+        }
     }
 
     async function checkAuth() {

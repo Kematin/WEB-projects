@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import Input from '../ui/Input/Input';
@@ -6,6 +7,7 @@ import Input from '../ui/Input/Input';
 function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     function logCookies() {
         const refresh = Cookies.get("refreshToken");
@@ -23,6 +25,7 @@ function LoginForm() {
 
             const data = response.data
             await moveTokensToStorage(data.refresh, data.access);
+            navigate("/")
 
         } catch (error) {
             console.error("Error while login user:", error);

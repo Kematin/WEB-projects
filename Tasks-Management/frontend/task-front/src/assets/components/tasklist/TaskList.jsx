@@ -3,7 +3,7 @@ import axios from 'axios';
 import Task from "../task/Task"
 
 function TaskList() {
-  const user_id = 2;
+  const user_id = 1;
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {

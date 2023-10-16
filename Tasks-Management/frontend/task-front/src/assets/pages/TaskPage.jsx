@@ -9,9 +9,10 @@ function TaskPage() {
     const navigate = useNavigate();
     moveUser()
 
-    async function deleteCookie() {
+    async function logout() {
         Cookies.remove("refreshToken")
         Cookies.remove("accessToken")
+        navigate('/login');
     }
 
     async function moveUser() {
@@ -87,7 +88,7 @@ function TaskPage() {
             <TaskList />
             <AddButton />
             <button onClick={moveUser}>CheckAuth</button>
-            <button onClick={deleteCookie}>Delete tokens</button>
+            <button onClick={logout}>Logout</button>
         </div>
     );
 }

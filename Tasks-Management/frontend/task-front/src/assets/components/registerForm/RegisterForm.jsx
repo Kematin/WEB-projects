@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Input from '../ui/Input/Input';
 
 function RegisterForm() {
@@ -6,10 +8,39 @@ function RegisterForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeat_password, setRepeatPassword] = useState('');
+    const navigate = useNavigate()
+
+    async function registerUser() {
+        console.log(`Register new user ${username}`);
+        if (checkPasswords()) {
+            addUserToServer()
+        } else {
+            console.log("Passwords are not correct");
+        }
+    }
     
-    const handleRegister = () => {
-        console.log('Registering user:', { username, password });
-    };
+    async function addUserToServer() {
+        try {
+            await axios.post("http://127.0.0.1:8000/auth/users/", {
+                email: email,
+                username: username,
+                password: password
+            });
+            navigate("/login")
+
+        } catch (error) {
+            console.error("Error while register user:", error);
+        }
+    }
+
+    function checkPasswords() { 
+        if (password === repeat_password) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
 
     return (
         <div className="form">
@@ -39,7 +70,7 @@ function RegisterForm() {
                     value={repeat_password}
                     fnOnChange={(e) => setRepeatPassword(e.target.value)} />
                 <br />
-                <button onClick={handleRegister}>Register</button>
+                <button onClick={registerUser}>Register</button>
             </div>
         </div>
     )

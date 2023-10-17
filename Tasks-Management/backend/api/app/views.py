@@ -26,7 +26,7 @@ class TaskList(ListAPIView):
 class TaskCreate(CreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    permission_classes = [IsAuthenticated, OwnProfilePermission]
+    permission_classes = [IsAuthenticated]
 
 
 class TaskChange(RetrieveUpdateDestroyAPIView):

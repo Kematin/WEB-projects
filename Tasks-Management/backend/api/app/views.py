@@ -4,6 +4,8 @@ from rest_framework.generics import (
     CreateAPIView,
     RetrieveUpdateDestroyAPIView,
 )
+from rest_framework.permissions import IsAuthenticated
+from .permissions import OwnProfilePermission
 from .models import Task
 from .serializers import (
     TaskSerializer,
@@ -13,21 +15,21 @@ from .serializers import (
 
 class TaskList(ListAPIView):
     serializer_class = TasksSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        user_id = self.request.query_params.get('user_id', None)
-        if user_id is None:
-            return []
-
-        queryset = Task.objects.filter(user=user_id)
+        user = self.request.user
+        queryset = Task.objects.filter(user=user)
         return queryset
 
 
 class TaskCreate(CreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+    permission_classes = [IsAuthenticated, OwnProfilePermission]
 
 
 class TaskChange(RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+    permission_classes = [IsAuthenticated, OwnProfilePermission]

@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import Task from "../task/Task"
 
 function TaskList() {
-  const user_id = 1;
+  const token = Cookies.get("accessToken");
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     const fetchTasks = async () => {
       try {
         const response = await axios.get('http://127.0.0.1:8000/api/tasklist/', {
-          params: {
-            user_id: user_id,
+          headers: {
+            Authorization: `JWT ${token}`
           }
         });
 
@@ -22,7 +23,7 @@ function TaskList() {
     };
 
     fetchTasks();
-  }, [user_id]);
+  }, [token]);
 
     return (
       <ul id="tasks">

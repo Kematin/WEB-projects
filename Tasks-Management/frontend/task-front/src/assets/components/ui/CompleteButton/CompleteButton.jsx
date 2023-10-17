@@ -1,8 +1,8 @@
 import {completeButton} from "./CompleteButton.module.css"
 
-function CompleteButton() {
+function CompleteButton({ fnOnClick }) {
     return (
-        <input type="checkbox" className={completeButton} />
+        <button onClick={fnOnClick} className={completeButton} />
     )
 }
 

@@ -28,7 +28,12 @@ function TaskList() {
     return (
       <ul id="tasks">
         {tasks.map(task => (
-          <Task key={task.id} task_id={task.id} task={task.task}/>
+          <Task 
+            key={task.id}
+            task_id={task.id}
+            task={task.task}
+            tasks={tasks}
+            setTasks={setTasks}/>
         ))}
       </ul>
     )

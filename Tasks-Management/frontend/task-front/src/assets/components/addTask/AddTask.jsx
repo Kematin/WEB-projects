@@ -6,10 +6,9 @@ import Cookies from 'js-cookie';
 import Input from "../ui/Input/Input"
 
 function AddTask() {
-    const [task, setTask] = useState();
+    const [task, setTask] = useState("");
 
-    async function addTask(e) {
-        e.preventDefault(); 
+    async function addTask() {
         try {
             const token = Cookies.get("accessToken");
             await axios.post("http://127.0.0.1:8000/api/taskcreate/", {
@@ -29,7 +28,7 @@ function AddTask() {
         <div id="add_task">
             <form onSubmit={addTask}>
                 <Input
-                    type="input"
+                    type="text"
                     value={task}
                     fnOnChange={(e) => setTask(e.target.value)}
                 />

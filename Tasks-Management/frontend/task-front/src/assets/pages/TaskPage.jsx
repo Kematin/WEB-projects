@@ -1,27 +1,33 @@
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
 
 import TaskList from "../components/tasklist/TaskList"
-import AddButton from "../components/ui/AddButton/AddButton"
+import AddTask from '../components/addTask/AddTask';
 
 function TaskPage() {
     const navigate = useNavigate();
-    moveUser()
+    const [isAuthenticated, setIsAuthenticated] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const isAuthenticated = await checkAuth();
+            setIsAuthenticated(isAuthenticated);
+            if (!isAuthenticated) {
+                navigate('/login');
+            }
+            console.log(`User is authenticated: ${isAuthenticated}`);
+        };
+
+        fetchData();
+    }, [navigate]);
 
     async function logout() {
         Cookies.remove("refreshToken")
         Cookies.remove("accessToken")
         navigate('/login');
-    }
-
-    async function moveUser() {
-        const isAuthenticated = await checkAuth();
-        console.log(`User is authenticated: ${isAuthenticated}`);
-
-        if (!isAuthenticated) {
-            navigate('/login');
-        }
     }
 
     async function checkAuth() {
@@ -82,12 +88,15 @@ function TaskPage() {
         Cookies.set("accessToken", tokens.access);
     }
 
+    if (isAuthenticated === null) {
+        return <p>Loading...</p>;
+    }
+
     return (
         <div id="task_page">
             <h1>Tasks</h1>
-            <TaskList />
-            <AddButton />
-            <button onClick={moveUser}>CheckAuth</button>
+            {isAuthenticated && <TaskList />} {/* Render TaskList if authenticated */}
+            <AddTask />
             <button onClick={logout}>Logout</button>
         </div>
     );

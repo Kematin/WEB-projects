@@ -1,9 +1,9 @@
 import {completeButton} from "./CompleteButton.module.css"
 
-function CompleteButton({ fnOnClick }) {
+function Button({ fnOnClick, value }) {
     return (
-        <button onClick={fnOnClick} className={completeButton} />
+        <button onClick={fnOnClick}className={completeButton}>{value}</button>
     )
 }
 
-export default CompleteButton
+export default Button

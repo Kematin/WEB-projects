@@ -1,19 +1,23 @@
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import taskBox from "./Task.module.css"
 
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
-import Button from "../ui/CompleteButton/CompleteButton"
+import Button from "../ui/Button/Button"
 import ModalWindow from '../modalWindow/modalWindow';
 import EditTask from '../editTask/EditTask';
 
 function Task({ task, taskId, tasks, setTasks }) {
     const token = Cookies.get("accessToken");
+
+    const [open, setOpen] = useState(false);
+    const handleOpenModal = () => setOpen(true);
+    const handleCloseModal = () => setOpen(false);
     
     async function completeTask() {
       try {
-        await axios.delete(`http://127.0.0.1:8000/api/taskchange/${taskId}`, {
+        await axios.delete(`http://127.0.0.1:8000/api/taskchange/${taskId}/`, {
           headers: {
             Authorization: `JWT ${token}`
           }
@@ -34,8 +38,14 @@ function Task({ task, taskId, tasks, setTasks }) {
           <li className="task" id={`task_${taskId}`}>{task}</li>
           <Button fnOnClick={completeTask}/>
           <ModalWindow 
+            handleClose={handleCloseModal}
+            handleOpen={handleOpenModal}
+            open={open}
             textForOpen="Edit"
-            dataInside={<EditTask taskId={taskId}/>}/>
+            dataInside={<EditTask 
+                          taskId={taskId} 
+                          defaultValue={task}
+                          handleClose={handleCloseModal}/>}/>
         </div>
     )
 }

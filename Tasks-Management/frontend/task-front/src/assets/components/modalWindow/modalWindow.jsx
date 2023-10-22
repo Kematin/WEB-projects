@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Modal from 'react-modal';
 
 import {modalWindow} from "./modalWindow.module.css"
@@ -15,11 +14,9 @@ const style = {
   p: 4,
 };
 
-function ModalWindow({ textForOpen, dataInside }){
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+Modal.setAppElement('#root');
 
+function ModalWindow({ handleOpen, handleClose, open, textForOpen, dataInside }){
   return (
     <div className={modalWindow}>
       <button onClick={handleOpen}>{textForOpen}</button>

@@ -30,7 +30,7 @@ function TaskList() {
         {tasks.map(task => (
           <Task 
             key={task.id}
-            task_id={task.id}
+            taskId={task.id}
             task={task.task}
             tasks={tasks}
             setTasks={setTasks}/>

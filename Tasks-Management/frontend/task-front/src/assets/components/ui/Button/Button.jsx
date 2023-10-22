@@ -1,4 +1,4 @@
-import {completeButton} from "./CompleteButton.module.css"
+import {completeButton} from "./Button.module.css"
 
 function Button({ fnOnClick, value }) {
     return (

@@ -5,24 +5,37 @@ import axios from 'axios';
 
 import Input from "../ui/Input/Input"
 
-function EditTask({ taskId, defaultValue, handleClose }) {
+function EditTask({ taskId, tasks, setTasks, defaultValue, handleClose }) {
     const token = Cookies.get("accessToken");
-    const [task, setTask] = useState(defaultValue)
+    const [updatedTask, setUpdatedTask] = useState(defaultValue)
 
     async function editTask() {
       try {
-        await axios.put(`http://127.0.0.1:8000/api/taskchange/${taskId}/`, {
-          headers: {
+        await axios.put(`http://127.0.0.1:8000/api/taskchange/${taskId}/`,
+        { task: updatedTask },
+        { headers: {
             Authorization: `JWT ${token}`
-          },
-          data: {
-            task: task
-          }
-        });
+        }});
+        editTaskState()
         handleClose()
       } catch (error) {
         console.error('Error edit task:', error);
       }
+    }
+
+    function editTaskState() {
+        const taskIndex = tasks.findIndex(task => task.id === taskId);
+
+        if (taskIndex !== -1) {
+            const updatedTasks = [
+                ...tasks.slice(0, taskIndex),
+                {"id":taskId, "task":updatedTask},
+                ...tasks.slice(taskIndex + 1)
+            ];
+            console.log(updatedTasks);
+
+            setTasks(updatedTasks);
+        }
     }
 
     return (
@@ -30,8 +43,8 @@ function EditTask({ taskId, defaultValue, handleClose }) {
             <Input 
                 label=""
                 type="text"
-                value={task}
-                fnOnChange={(e) => {setTask(e.target.value)}}
+                value={updatedTask}
+                fnOnChange={(e) => {setUpdatedTask(e.target.value)}}
             />
             <button onClick={editTask}>Edit</button>
         </div>

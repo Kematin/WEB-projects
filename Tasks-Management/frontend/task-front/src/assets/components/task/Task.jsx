@@ -44,6 +44,8 @@ function Task({ task, taskId, tasks, setTasks }) {
             textForOpen="Edit"
             dataInside={<EditTask 
                           taskId={taskId} 
+                          tasks={tasks}
+                          setTasks={setTasks}
                           defaultValue={task}
                           handleClose={handleCloseModal}/>}/>
         </div>

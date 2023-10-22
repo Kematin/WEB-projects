@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import taskBox from "./Task.module.css"
+import {taskBox, taskStyle} from "./Task.module.css"
 
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
-import Button from "../ui/Button/Button"
+import CompleteButton from '../ui/CompleteButton/CompleteButton';
 import ModalWindow from '../modalWindow/modalWindow';
 import EditTask from '../editTask/EditTask';
 
@@ -35,8 +35,8 @@ function Task({ task, taskId, tasks, setTasks }) {
 
     return (
         <div className={taskBox}>
-          <li className="task" id={`task_${taskId}`}>{task}</li>
-          <Button fnOnClick={completeTask}/>
+          <li className={taskStyle} id={`task_${taskId}`}>{task}</li>
+          <CompleteButton fnOnClick={completeTask}/>
           <ModalWindow 
             handleClose={handleCloseModal}
             handleOpen={handleOpenModal}

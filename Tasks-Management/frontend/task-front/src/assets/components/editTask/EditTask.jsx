@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 
 import Input from "../ui/Input/Input"
+import CompleteButton from "../ui/CompleteButton/CompleteButton"
 
 function EditTask({ taskId, tasks, setTasks, defaultValue, handleClose }) {
     const token = Cookies.get("accessToken");
@@ -32,8 +33,6 @@ function EditTask({ taskId, tasks, setTasks, defaultValue, handleClose }) {
                 {"id":taskId, "task":updatedTask},
                 ...tasks.slice(taskIndex + 1)
             ];
-            console.log(updatedTasks);
-
             setTasks(updatedTasks);
         }
     }
@@ -46,7 +45,7 @@ function EditTask({ taskId, tasks, setTasks, defaultValue, handleClose }) {
                 value={updatedTask}
                 fnOnChange={(e) => {setUpdatedTask(e.target.value)}}
             />
-            <button onClick={editTask}>Edit</button>
+            <CompleteButton fnOnClick={editTask}>Edit</CompleteButton>
         </div>
     )
 }

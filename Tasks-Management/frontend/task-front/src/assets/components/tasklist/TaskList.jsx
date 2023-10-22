@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
+
+import {tasklist} from "./TaskList.module.css"
+
 import axios from 'axios';
 import Cookies from 'js-cookie';
+
 import Task from "../task/Task"
 
 function TaskList() {
@@ -26,7 +30,7 @@ function TaskList() {
   }, [token]);
 
     return (
-      <ul id="tasks">
+      <ul id="tasks" className={tasklist}>
         {tasks.map(task => (
           <Task 
             key={task.id}

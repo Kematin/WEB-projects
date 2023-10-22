@@ -1,12 +1,17 @@
+import {input} from "./Input.module.css"
+
 function Input({label, type, value, fnOnChange}) {
     return (
-        <label>
-            {label}
-            <input
-                type={type}
-                value={value}
-                onChange={fnOnChange} />
-        </label>
+        <div className={input}>
+            <label>
+                {label}
+                <input
+                    type={type}
+                    value={value}
+                    onChange={fnOnChange} />
+            </label>
+        </div>
+        
     )
 }
 

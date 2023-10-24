@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import {addBtn} from "./AddTask.module.css"
+
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
@@ -28,11 +30,13 @@ function AddTask() {
         <div id="add_task">
             <form onSubmit={addTask}>
                 <Input
+                    class
                     type="text"
                     value={task}
                     fnOnChange={(e) => setTask(e.target.value)}
                 />
                 <input  
+                    className={addBtn}
                     type="submit"
                     value="Add task"
                 />

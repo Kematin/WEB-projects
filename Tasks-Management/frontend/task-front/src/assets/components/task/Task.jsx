@@ -10,6 +10,8 @@ import EditTask from '../editTask/EditTask';
 
 function Task({ task, taskId, tasks, setTasks }) {
     const token = Cookies.get("accessToken");
+    const [isChecked, setChecked] = useState(false);
+
 
     const [open, setOpen] = useState(false);
     const handleOpenModal = () => setOpen(true);
@@ -33,21 +35,29 @@ function Task({ task, taskId, tasks, setTasks }) {
       setTasks(updatedTasks)
     }
 
+    function makeChecked() {
+      setChecked(!isChecked);
+    }
+
+    const style = `${taskStyle} ${isChecked ? 'checked' : ''}`; // Adjust the class name based on your design
+
     return (
         <div className={taskBox}>
-          <li className={taskStyle} id={`task_${taskId}`}>{task}</li>
-          <CompleteButton fnOnClick={completeTask}/>
-          <ModalWindow 
-            handleClose={handleCloseModal}
-            handleOpen={handleOpenModal}
-            open={open}
-            textForOpen="Edit"
-            dataInside={<EditTask 
-                          taskId={taskId} 
-                          tasks={tasks}
-                          setTasks={setTasks}
-                          defaultValue={task}
-                          handleClose={handleCloseModal}/>}/>
+          <li onClick={makeChecked} className={style} id={`task_${taskId}`}>
+            {task}
+            <CompleteButton fnOnClick={completeTask}/>
+            <ModalWindow 
+              handleClose={handleCloseModal}
+              handleOpen={handleOpenModal}
+              open={open}
+              textForOpen="Edit"
+              dataInside={<EditTask 
+                            taskId={taskId} 
+                            tasks={tasks}
+                            setTasks={setTasks}
+                            defaultValue={task}
+                            handleClose={handleCloseModal}/>}/>
+          </li>
         </div>
     )
 }

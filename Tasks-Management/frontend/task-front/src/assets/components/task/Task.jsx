@@ -5,17 +5,17 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 
 import CompleteButton from '../ui/CompleteButton/CompleteButton';
-import ModalWindow from '../modalWindow/modalWindow';
-import EditTask from '../editTask/EditTask';
+// import ModalWindow from '../modalWindow/modalWindow';
+// import EditTask from '../editTask/EditTask';
 
 function Task({ task, taskId, tasks, setTasks }) {
     const token = Cookies.get("accessToken");
     const [isChecked, setChecked] = useState(false);
 
 
-    const [open, setOpen] = useState(false);
-    const handleOpenModal = () => setOpen(true);
-    const handleCloseModal = () => setOpen(false);
+    // const [open, setOpen] = useState(false);
+    // const handleOpenModal = () => setOpen(true);
+    // const handleCloseModal = () => setOpen(false);
     
     async function completeTask() {
       try {
@@ -45,7 +45,7 @@ function Task({ task, taskId, tasks, setTasks }) {
         <div className={taskBox}>
           <li onClick={makeChecked} className={style} id={`task_${taskId}`}>
             {task}
-            <CompleteButton fnOnClick={completeTask}/>
+            <CompleteButton fnOnClick={completeTask} value="X"/>
             {/* <ModalWindow 
               handleClose={handleCloseModal}
               handleOpen={handleOpenModal}

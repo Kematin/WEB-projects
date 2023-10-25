@@ -1,10 +1,11 @@
 .taskBox {
-  border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
 }
 
 .taskStyle {
+  border: 2px solid #ccc;
+  border-radius: 4px;
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;

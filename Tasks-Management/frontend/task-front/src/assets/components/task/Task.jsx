@@ -46,7 +46,7 @@ function Task({ task, taskId, tasks, setTasks }) {
           <li onClick={makeChecked} className={style} id={`task_${taskId}`}>
             {task}
             <CompleteButton fnOnClick={completeTask}/>
-            <ModalWindow 
+            {/* <ModalWindow 
               handleClose={handleCloseModal}
               handleOpen={handleOpenModal}
               open={open}
@@ -56,7 +56,7 @@ function Task({ task, taskId, tasks, setTasks }) {
                             tasks={tasks}
                             setTasks={setTasks}
                             defaultValue={task}
-                            handleClose={handleCloseModal}/>}/>
+                            handleClose={handleCloseModal}/>}/> */}
           </li>
         </div>
     )

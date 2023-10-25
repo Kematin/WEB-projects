@@ -6,6 +6,7 @@ import Cookies from 'js-cookie';
 
 import TaskList from "../components/tasklist/TaskList"
 import AddTask from '../components/addTask/AddTask';
+import Button from '../components/ui/Button/Button';
 
 function TaskPage() {
     const navigate = useNavigate();
@@ -97,7 +98,7 @@ function TaskPage() {
             <h1>Tasks</h1>
             {isAuthenticated && <TaskList />} {/* Render TaskList if authenticated */}
             <AddTask />
-            <button onClick={logout}>Logout</button>
+            <Button fnOnClick={logout} value="Logout"></Button>
         </div>
     );
 }

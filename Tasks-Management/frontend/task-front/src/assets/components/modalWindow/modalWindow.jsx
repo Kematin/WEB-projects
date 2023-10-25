@@ -1,6 +1,7 @@
 import Modal from 'react-modal';
 
 import {modalWindow} from "./modalWindow.module.css"
+import Button from '../ui/Button/Button';
 
 const style = {
   position: 'absolute',
@@ -19,7 +20,7 @@ Modal.setAppElement('#root');
 function ModalWindow({ handleOpen, handleClose, open, textForOpen, dataInside }){
   return (
     <div className={modalWindow}>
-      <button onClick={handleOpen}>{textForOpen}</button>
+      <Button fnOnClick={handleOpen} value={textForOpen}></Button>
       <Modal
         isOpen={open}
         onRequestClose={handleClose}

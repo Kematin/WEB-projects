@@ -3,18 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import Input from '../ui/Input/Input';
+import Button from '../ui/Button/Button';
 
 function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-
-    function logCookies() {
-        const refresh = Cookies.get("refreshToken");
-        const access = Cookies.get("accessToken");
-        console.log(refresh);
-        console.log(access);
-    }
 
     async function loginUser() {
         try {
@@ -59,8 +53,7 @@ function LoginForm() {
                     fnOnChange={(e) => setPassword(e.target.value)}
                 />
                 <br />
-                <button onClick={loginUser}>Login</button>
-                <button onClick={logCookies}>See tokens</button>
+                <Button fnOnClick={loginUser} value="Login"></Button>
             </div>
         </div>
     )

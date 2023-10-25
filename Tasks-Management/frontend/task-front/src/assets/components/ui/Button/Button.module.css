@@ -1,4 +1,4 @@
-.addBtn {
+.Btn {
   padding: 10px;
   margin: 5px;
   background-color: transparent;
@@ -12,6 +12,6 @@
   transition: 0.3s;
 }
 
-.addBtn:hover {
+.Btn:hover {
   border: 2px solid black;
 }

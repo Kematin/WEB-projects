@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Input from '../ui/Input/Input';
+import Button from '../ui/Button/Button';
 
 function RegisterForm() {
     const [username, setUsername] = useState('');
@@ -45,7 +46,7 @@ function RegisterForm() {
     return (
         <div className="form">
             <div id="register">
-                <h2>Register</h2>
+                <h1>Register</h1>
                 <Input 
                     label="Username"
                     type="text"
@@ -53,7 +54,7 @@ function RegisterForm() {
                     fnOnChange={(e) => setUsername(e.target.value)} />
                 <br />
                 <Input 
-                    label="Email"
+                    label="EEEMail"
                     type="email"
                     value={email}
                     fnOnChange={(e) => setEmail(e.target.value)} />
@@ -70,7 +71,7 @@ function RegisterForm() {
                     value={repeat_password}
                     fnOnChange={(e) => setRepeatPassword(e.target.value)} />
                 <br />
-                <button onClick={registerUser}>Register</button>
+                <Button fnOnClick={registerUser} value="Register"></Button>
             </div>
         </div>
     )

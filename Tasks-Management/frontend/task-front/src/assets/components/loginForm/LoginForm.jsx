@@ -38,8 +38,7 @@ function LoginForm() {
 
     return (
         <div className="form">
-            <div id="login">
-                <h2>Login</h2>
+            <div id="login_form">
                 <Input
                     label={"Username"}
                     type={"text"}

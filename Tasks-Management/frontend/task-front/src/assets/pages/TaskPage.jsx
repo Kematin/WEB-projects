@@ -7,6 +7,7 @@ import Cookies from 'js-cookie';
 import TaskList from "../components/tasklist/TaskList"
 import AddTask from '../components/addTask/AddTask';
 import Button from '../components/ui/Button/Button';
+import Navbar from '../components/navbar/Navbar';
 
 function TaskPage() {
     const navigate = useNavigate();
@@ -95,6 +96,7 @@ function TaskPage() {
 
     return (
         <div id="task_page">
+            <Navbar />
             <h1>Tasks</h1>
             {isAuthenticated && <TaskList />} {/* Render TaskList if authenticated */}
             <AddTask />

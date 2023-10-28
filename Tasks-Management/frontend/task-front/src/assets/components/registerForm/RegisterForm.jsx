@@ -45,8 +45,7 @@ function RegisterForm() {
 
     return (
         <div className="form">
-            <div id="register">
-                <h1>Register</h1>
+            <div id="register_form">
                 <Input 
                     label="Username"
                     type="text"

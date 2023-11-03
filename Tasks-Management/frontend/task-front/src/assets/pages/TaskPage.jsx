@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { ToastContainer } from 'react-toastify';
 
 import TaskList from "../components/tasklist/TaskList"
 import AddTask from '../components/addTask/AddTask';
@@ -101,6 +102,7 @@ function TaskPage() {
             {isAuthenticated && <TaskList />} {/* Render TaskList if authenticated */}
             <AddTask />
             <Button fnOnClick={logout} value="Logout"></Button>
+            <ToastContainer />
         </div>
     );
 }

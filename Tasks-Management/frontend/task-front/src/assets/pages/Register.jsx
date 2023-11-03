@@ -1,5 +1,6 @@
 import RegisterForm from "../components/registerForm/RegisterForm";
 import Navbar from '../components/navbar/Navbar';
+import { ToastContainer } from 'react-toastify';
 
 function Register() {
    return (
@@ -7,6 +8,7 @@ function Register() {
          <Navbar />
          <h1>Register</h1>
          <RegisterForm /> 
+         <ToastContainer />
       </div>
   );
 }

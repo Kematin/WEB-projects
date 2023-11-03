@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { ToastContainer, toast } from 'react-toastify';
+
+
 import Input from '../ui/Input/Input';
 import Button from '../ui/Button/Button';
 
@@ -9,6 +13,34 @@ function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    function successNotify(message) {
+        console.log("Success");
+        toast(message, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+
+    function errorNotify(message) {
+        console.log("Erorr");
+        toast.error(message, {
+            position: "top-right",
+            autoClose: 1400,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
 
     async function loginUser() {
         try {
@@ -20,9 +52,11 @@ function LoginForm() {
             const data = response.data
             await moveTokensToStorage(data.refresh, data.access);
             navigate("/")
+            successNotify("Success login")
 
         } catch (error) {
             console.error("Error while login user:", error);
+            errorNotify("Invalid login or password")
         }
     }
 

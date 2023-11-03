@@ -1,20 +1,23 @@
 # All Django projects
 
+## Finished
 - Curency Calculate
 - Weather Finder
-- ! Tasks management (in development)
-- Blog platform (idea)
-- E-commerce store (idea)
-- Recipe finder (idea)
-- ! Personal Finance Tracker (idea)
-- To-Do List with Collaboration (idea)
-- Online Quiz Platform (idea)
-- Social Media Dashboard (idea)
-- ! Portfolio (idea)
-- Chat Application (idea)
-- Booking System (idea)
-- Key word speed (idea)
-- Player, like YM (idea)
+- Tasks management
+
+## Ideas
+- Blog platform
+- E-commerce store
+- Recipe finder
+- ! Personal Finance Tracker
+- To-Do List with Collaboration
+- Online Quiz Platform
+- Social Media Dashboard
+- ! Portfolio
+- Chat Application
+- Booking System
+- Key word speed
+- Player, like YM
 
 Приложение для управления задачами: Создать веб-приложение, в котором пользователи могут регистрироваться, входить в систему и управлять своими задачами. Пользователи могут создавать, обновлять и удалять задачи. Реализуйте аутентификацию пользователей с помощью Django, создайте RESTful API для работы с задачами и используйте React для фронт-энда.
 
